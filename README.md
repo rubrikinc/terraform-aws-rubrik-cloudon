@@ -1,4 +1,4 @@
-# Terraform Module - AWS S3 Rubrik CloudOn
+# Terraform Module - AWS Rubrik CloudOn
 
 Terraform module that adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
 
