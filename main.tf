@@ -88,4 +88,5 @@ resource "rubrik_aws_s3_cloudon" "cloudon" {
   vpc_id            = "${var.vpc_id}"
   subnet_id         = "${var.subnet_id}"
   security_group_id = "${var.security_group_id}"
+  timeout = "${var.timeout}"
 }

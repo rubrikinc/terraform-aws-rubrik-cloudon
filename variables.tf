@@ -17,3 +17,7 @@ variable "subnet_id" {
 variable "security_group_id" {
   description = "The id of the security group used to run bolt."
 }
+variable "timeout" {
+  description = "Timeout value to be used when making Rubrik API call"
+  default = 60
+}
