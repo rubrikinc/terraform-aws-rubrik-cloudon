@@ -1,18 +1,15 @@
-# Terraform Module - AWS Rubrik CloudOn
+# Quick Start:  AWS S3 Rubrik CloudOn Terraform Module
 
-Terraform module that adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
+Adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
 
 * Create a new IAM Policy with the correct permissions for CloudOn and attach it to the specified user.
 * Configures Cloud Compute Settings on Rubrik cluster.
 
-## Documentation
+Completing the steps detailed below will require that Terraform is installed and in your environment path, that you are running the instance from a *nix shell (bash, zsh, etc).
 
-Here are some resources to get you started! If you find any challenges from this project are not properly documented or are unclear, please raise an issueand let us know! This is a fun, safe environment - don't worry if you're a GitHub newbie!
+## Configuration
 
-* [Quick Start Guide](/docs/quick-start.md)
-* [Rubrik API Documentation](https://github.com/rubrikinc/api-documentation)
-
-### Usage
+In your [Terraform configuration](https://learn.hashicorp.com/terraform/getting-started/build#configuration) (`main.tf`) populate the following and update the variables to your specific environment:
 
 ```hcl
 module "rubrik_aws_cloudon" {
@@ -25,6 +22,8 @@ module "rubrik_aws_cloudon" {
   security_group_id = "sg-12345678901234567"
 }
 ```
+
+You may also add additional variables, such as `iam_policy_name`, to overwrite the default values.
 
 ## Inputs
 
@@ -40,26 +39,54 @@ The following are the variables accepted by the module.
 | security_group_id        | The id of the security group used to run bolt.                                                                                             | string |  |    yes    |
 | timeout        | Timeout value to be used when making Rubrik API call.                                                                                             | number | 60 |    no    |
 
-## Prerequisites
+## Running the Terraform Configuration
 
-There are a few services you'll need in order to get this project off the ground:
+This section outlines what is required to run the configuration defined above. 
+
+### Prerequisites
 
 * [Terraform](https://www.terraform.io/downloads.html) v0.10.3 or greater
 * [Rubrik Provider for Terraform](https://github.com/rubrikinc/rubrik-provider-for-terraform) - provides Terraform functions for Rubrik
 
-## How You Can Help
+### Initialize the Directory
 
-We glady welcome contributions from the community. From updating the documentation to adding more functions for Python, all ideas are welcome. Thank you in advance for all of your issues, pull requests, and comments! :star:
+The directory can be initialized for Terraform use by running the `terraform init` command:
 
-* [Contributing Guide](CONTRIBUTING.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+```none
+Initializing modules...
+- module.rubrik_aws_cloudon
+  Getting source "rubrikinc/aws-rubrik-cloudon/module"
 
-## License
+Initializing provider plugins...
 
-* [MIT License](LICENSE)
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
 
-## About Rubrik Build
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
 
-We encourage all contributors to become members. We aim to grow an active, healthy community of contributors, reviewers, and code owners. Learn more in our [Welcome to the Rubrik Build Community](https://github.com/rubrikinc/welcome-to-rubrik-build) page.
+* provider.aws: version = "~> 2.2"
 
-We'd  love to hear from you! Email us: build@rubrik.com 
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+```
+### Planning
+
+Run `terraform plan` to get information about what will happen when we apply the configuration; this will test that everything is set up correctly.
+
+### Applying
+
+We can now apply the configuration to create the cluster using the `terraform apply` command.
+
+### Destroying
+
+If CloudOn is no longer required, this configuration can be destroyed using the `terraform destroy` command, and entering `yes` when prompted.
