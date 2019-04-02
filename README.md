@@ -38,6 +38,7 @@ The following are the variables accepted by the module.
 | vpc_id        | The id of the vpc used to run bolt.                                                                                             | string |  |    yes    |
 | subnet_id        | The id of the subnet used to run bolt.                                                                                             | string |  |    yes    |
 | security_group_id        | The id of the security group used to run bolt.                                                                                             | string |  |    yes    |
+| timeout        | Timeout value to be used when making Rubrik API call.                                                                                             | number | 60 |    no    |
 
 ## Prerequisites
 
