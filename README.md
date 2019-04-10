@@ -16,7 +16,7 @@ Here are some resources to get you started! If you find any challenges from this
 
 ```hcl
 module "rubrik_aws_cloudon" {
-  source = "rubrikinc/rubrik-s3-cloudon/aws"
+  source = "rubrikinc/rubrik-cloudon/aws"
 
   iam_user_name  = "rubrik"
   archive_name = "S3:ArchiveLocation"
