@@ -13,7 +13,7 @@ In your [Terraform configuration](https://learn.hashicorp.com/terraform/getting-
 
 ```hcl
 module "rubrik_aws_cloudon" {
-  source = "rubrikinc/rubrik-s3-cloudon/aws"
+  source = "rubrikinc/rubrik-cloudon/aws"
 
   iam_user_name  = "rubrik"
   archive_name = "S3:ArchiveLocation"
