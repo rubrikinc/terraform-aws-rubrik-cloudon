@@ -30,9 +30,18 @@ You may also add additional variables, such as `iam_policy_name`, to overwrite t
 
 The following are the variables accepted by the module.
 
+| Name                              | Description                                                                                                      |  Type  |        Default         | Required |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------- | :----: | :--------------------: | :------: |
 | aws_region                        | The AWS region to configure Rubrik Storm instances to run in.                                                    | string |                        |   yes    |
 | aws_vpc_security_group_name_storm | Name of the security group to create for Rubrik Storm instances to use.                                          | string | Rubrik Storm Instances |   yes    |
+| rubrik_cluster_cidr               | The CIDR range of the Rubrik Cluster. (Used to allow ingress to Storm from the Rubrik Cluster). Format x.x.x.x/y | string |                        |   yes    |
+| iam_user_name                     | The name of the IAM currently used for CloudOut to create.                                                       | string |                        |   yes    |
+| iam_policy_name                   | The name of the IAM Policy to be created with the correct CloudOut permissions.                                  | string |    rubrik-cloud-out    |    no    |
 | iam_vmimport_policy_name          | The name of the IAM Policy configured with the correct permissions for the VM Import service.                    | string |  rubrik-vmimport-role  |   yes    |
+| bucket_name                       | The name of the S3 bucket used for CloudOn from the Archival Location.                                           | string |                        |   yes    |
+| vpc_id                            | The id of the vpc used to run bolt.                                                                              | string |                        |   yes    |
+| subnet_id                         | The id of the subnet used to run bolt.                                                                           | string |                        |   yes    |
+| timeout                           | Timeout value to be used when making Rubrik API call.                                                            | number |           60           |    no    |
 
 ## Running the Terraform Configuration
 
