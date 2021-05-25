@@ -1,5 +1,11 @@
+
 variable aws_region {
   description = "The AWS region to configure Rubrik Storm instances to run in"
+}
+
+variable "aws_vpc_security_group_name_storm" {
+  description = "Name of the security group to create for Rubrik Storm instances to use."
+  default     = "Rubrik Storm Instances"
 }
 
 variable "rubrik_cluster_cidr" {
@@ -28,9 +34,6 @@ variable "vpc_id" {
 }
 variable "subnet_id" {
   description = "The id of the subnet used to run bolt."
-}
-variable "security_group_id" {
-  description = "The id of the security group used to run bolt."
 }
 variable "timeout" {
   description = "Timeout value to be used when making Rubrik API call"
