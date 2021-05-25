@@ -30,15 +30,7 @@ module "rubrik_aws_cloudon" {
 
 The following are the variables accepted by the module.
 
-| Name                 | Description                                                                                                               |  Type  |      Default     | Required |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------|:------:|:----------------:|:--------:|
-| archive_name         | The name of the existing Rubrik archive location in the Rubrik GUI.                                                                | string |                  |    yes   |
-| iam_user_name        | The name of the IAM currently used for CloudOut to create.                                                                                       | string |            |    yes    |
-| iam_policy_name      | The name of the IAM Policy to be created with the correct CloudOut permissions.                                              | string | rubrik-cloud-out |    no    |
-| vpc_id        | The id of the vpc used to run bolt.                                                                                             | string |  |    yes    |
-| subnet_id        | The id of the subnet used to run bolt.                                                                                             | string |  |    yes    |
-| security_group_id        | The id of the security group used to run bolt.                                                                                             | string |  |    yes    |
-| timeout        | Timeout value to be used when making Rubrik API call.                                                                                             | number | 60 |    no    |
+| aws_region                        | The AWS region to configure Rubrik Storm instances to run in.                                                    | string |                        |   yes    |
 
 ## Prerequisites
 

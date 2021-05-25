@@ -1,3 +1,6 @@
+variable aws_region {
+  description = "The AWS region to configure Rubrik Storm instances to run in"
+}
 variable "iam_user_name" {
   description = "The name of the IAM currently used for CloudOut."
 }
