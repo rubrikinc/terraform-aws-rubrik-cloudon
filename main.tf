@@ -68,7 +68,9 @@ resource "aws_iam_policy" "cloud-on-permissions" {
               "ec2:DescribeImages",
               "ec2:DescribeVpcs",
               "ec2:CancelImportTask",
-              "ec2:DescribeConversionTasks"
+              "ec2:DescribeConversionTasks",
+              "iam:PutRolePolicy",
+              "iam:CreateRole"
             ],
             "Resource": "*"
         }
