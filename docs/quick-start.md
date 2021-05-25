@@ -1,10 +1,12 @@
-# Quick Start:  AWS S3 Rubrik CloudOn Terraform Module
+# Quick Start: AWS S3 Rubrik CloudOn Terraform Module
 
 Adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
 
+- Create a new IAM Policy with the correct permissions for CloudOn and attach it to the specified user.
 - Create a new IAM Role with the correct permissions for CloudOn to use the AWS VMImport service.
 - Create a new Security Group to allow the Rubrik Cluster to talk to the Rubrik Storm instances.
 - Create S3 and KMS endpoints so that Rubrik Storm can keep data on the AWS network.
+- Configures Cloud Compute Settings on Rubrik cluster.
 
 Completing the steps detailed below will require that Terraform is installed and in your environment path, that you are running the instance from a \*nix shell (bash, zsh, etc).
 
@@ -45,7 +47,7 @@ The following are the variables accepted by the module.
 
 ## Running the Terraform Configuration
 
-This section outlines what is required to run the configuration defined above. 
+This section outlines what is required to run the configuration defined above.
 
 ### Prerequisites
 
