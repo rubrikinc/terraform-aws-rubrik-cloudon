@@ -195,4 +195,30 @@ resource "aws_security_group" "rubrik-storm" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
+
+###################
+# AWS Endpoints   #
+###################
+
+# Note: It is Rubrik's and AWS' best proactice to use a S3 endpoint when accessing 
+# S3 data from EC2 instances. In cases where intenret access is not allowd 
+# from EC2 instances using a S3 endpoint is required. If a S3 endpoint already 
+# exists or is not desired this resource can be removed. 
+
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id       = "${var.vpc_id}"
+  service_name = "com.amazonaws.${var.aws_region}.s3"
+}
+
+# NOTE: It is Rubrik's and AWS' best practice to use a KMS endpoint when accessing
+# KMS dat from EC2 instances. In cases where intenret access is not allowd 
+# from EC2 instances using a KMS endpoint is required. If a KMS endpoint already
+# exists or is not desired this resoruce can be removed.
+
+resource "aws_vpc_endpoint" "kms" {
+  vpc_id             = "${var.vpc_id}"
+  subnet_ids         = ["${var.subnet_id}"]
+  security_group_ids = ["${aws_security_group.rubrik-storm.id}"]
+  vpc_endpoint_type  = "Interface"
+  service_name       = "com.amazonaws.${var.aws_region}.kms"
 }

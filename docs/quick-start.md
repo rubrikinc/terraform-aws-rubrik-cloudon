@@ -4,6 +4,7 @@ Adds Cloud Compute Settings to an existing archive location. The following steps
 
 - Create a new IAM Role with the correct permissions for CloudOn to use the AWS VMImport service.
 - Create a new Security Group to allow the Rubrik Cluster to talk to the Rubrik Storm instances.
+- Create S3 and KMS endpoints so that Rubrik Storm can keep data on the AWS network.
 
 Completing the steps detailed below will require that Terraform is installed and in your environment path, that you are running the instance from a \*nix shell (bash, zsh, etc).
 
