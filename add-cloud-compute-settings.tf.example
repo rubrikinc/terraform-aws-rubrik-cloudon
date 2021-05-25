@@ -1,0 +1,19 @@
+ # This code has be deprecated until the Terraform Rubrik Provider
+ # supports Terraform versions higher than v0.11
+
+################################
+#     Configure CloudOn        #
+################################
+
+resource "rubrik_aws_s3_cloudon" "cloudon" {
+  archive_name      = "${var.archive_name}"
+  vpc_id            = "${var.vpc_id}"
+  subnet_id         = "${var.subnet_id}"
+  security_group_id = "${var.security_group_id}"
+  timeout = "${var.timeout}"
+}
+
+# Move ths variable back to the variables.tf file when re-enabling this feature.
+variable "archive_name" {
+  description = "The name of the Rubrik archive location in the Rubrik GUI."
+}
