@@ -9,8 +9,7 @@ Terraform module that adds Cloud Compute Settings to an existing archive locatio
 
 Here are some resources to get you started! If you find any challenges from this project are not properly documented or are unclear, please raise an issueand let us know! This is a fun, safe environment - don't worry if you're a GitHub newbie!
 
-* [Quick Start Guide](/docs/quick-start.md)
-* [Rubrik API Documentation](https://github.com/rubrikinc/api-documentation)
+  - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ### Usage
 
@@ -36,8 +35,7 @@ The following are the variables accepted by the module.
 
 There are a few services you'll need in order to get this project off the ground:
 
-* [Terraform](https://www.terraform.io/downloads.html) v0.10.3 or greater
-* [Rubrik Provider for Terraform](https://github.com/rubrikinc/rubrik-provider-for-terraform) - provides Terraform functions for Rubrik
+  - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ## How You Can Help
 

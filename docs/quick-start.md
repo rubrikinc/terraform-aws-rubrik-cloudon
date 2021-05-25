@@ -37,8 +37,7 @@ This section outlines what is required to run the configuration defined above.
 
 ### Prerequisites
 
-* [Terraform](https://www.terraform.io/downloads.html) v0.10.3 or greater
-* [Rubrik Provider for Terraform](https://github.com/rubrikinc/rubrik-provider-for-terraform) - provides Terraform functions for Rubrik
+  - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ### Initialize the Directory
 
