@@ -7,8 +7,10 @@ Terraform module that adds Cloud Compute Settings to an existing archive locatio
 
 ## Documentation
 
-Here are some resources to get you started! If you find any challenges from this project are not properly documented or are unclear, please raise an issueand let us know! This is a fun, safe environment - don't worry if you're a GitHub newbie!
+Here are some resources to get you started! If you find any challenges from this project are not properly documented or are unclear, please raise an issue and let us know! This is a fun, safe environment - don't worry if you're a GitHub newbie!
 
+- [Quick Start Guide](/docs/quick-start.md)
+- [Rubrik API Documentation](https://github.com/rubrikinc/api-documentation)
   - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ### Usage
@@ -35,21 +37,23 @@ The following are the variables accepted by the module.
 
 There are a few services you'll need in order to get this project off the ground:
 
+- [Terraform](https://www.terraform.io/downloads.html) v0.15.4 or greater
+- [Rubrik Provider for Terraform](https://github.com/rubrikinc/rubrik-provider-for-terraform) - provides Terraform functions for Rubrik
   - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ## How You Can Help
 
 We glady welcome contributions from the community. From updating the documentation to adding more functions for Python, all ideas are welcome. Thank you in advance for all of your issues, pull requests, and comments! :star:
 
-* [Contributing Guide](CONTRIBUTING.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## License
 
-* [MIT License](LICENSE)
+- [MIT License](LICENSE)
 
 ## About Rubrik Build
 
 We encourage all contributors to become members. We aim to grow an active, healthy community of contributors, reviewers, and code owners. Learn more in our [Welcome to the Rubrik Build Community](https://github.com/rubrikinc/welcome-to-rubrik-build) page.
 
-We'd  love to hear from you! Email us: build@rubrik.com 
+We'd love to hear from you! Email us: build@rubrik.com

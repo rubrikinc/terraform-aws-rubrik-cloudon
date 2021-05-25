@@ -11,8 +11,7 @@ provider "aws" {
 ##################
 
 resource "aws_iam_policy" "cloud-on-permissions" {
-  name = "${var.iam_policy_name}"
-
+  name   = "${var.iam_policy_name}"
   policy = <<EOF
 {
     "Version": "2012-10-17",

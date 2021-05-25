@@ -5,7 +5,7 @@ Adds Cloud Compute Settings to an existing archive location. The following steps
 * Create a new IAM Policy with the correct permissions for CloudOn and attach it to the specified user.
 * Configures Cloud Compute Settings on Rubrik cluster.
 
-Completing the steps detailed below will require that Terraform is installed and in your environment path, that you are running the instance from a *nix shell (bash, zsh, etc).
+Completing the steps detailed below will require that Terraform is installed and in your environment path, that you are running the instance from a \*nix shell (bash, zsh, etc).
 
 ## Configuration
 
@@ -37,6 +37,7 @@ This section outlines what is required to run the configuration defined above.
 
 ### Prerequisites
 
+- [Rubrik Provider for Terraform](https://github.com/rubrikinc/rubrik-provider-for-terraform) - provides Terraform functions for Rubrik
   - Only required to run the sample Rubrik command to update the Cloud Compute settings for the Archival Location.
 
 ### Initialize the Directory
@@ -70,6 +71,7 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
+
 ### Planning
 
 Run `terraform plan` to get information about what will happen when we apply the configuration; this will test that everything is set up correctly.
