@@ -3,6 +3,7 @@
 Terraform module that adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
 
 - Create a new IAM Role with the correct permissions for CloudOn to use the AWS VMImport service.
+- Create a new Security Group to allow the Rubrik Cluster to talk to the Rubrik Storm instances.
 
 ## Documentation
 

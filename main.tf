@@ -146,11 +146,53 @@ resource "aws_iam_role_policy_attachment" "rubrik-vmimport" {
   policy_arn = aws_iam_policy.rubrik-vmimport.arn
 }
 
+#################################################
+# Security Group for the Rubrik Storm Instances #
+#################################################
 
-resource "rubrik_aws_s3_cloudon" "cloudon" {
-  archive_name      = "${var.archive_name}"
-  vpc_id            = "${var.vpc_id}"
-  subnet_id         = "${var.subnet_id}"
-  security_group_id = "${var.security_group_id}"
-  timeout = "${var.timeout}"
+resource "aws_security_group" "rubrik-storm" {
+  name        = "${var.aws_vpc_security_group_name_storm}"
+  description = "Allow Rubrik Cluster to talk to Rubrik Storm and intra Storm communication"
+  vpc_id      = "${var.vpc_id}"
+
+  ingress {
+    description      = "Intra Storm communication"
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    self             = true
+  }
+
+  ingress {
+    description      = "Cluster to Storm communication"
+    from_port        = 2002
+    to_port          = 2002
+    protocol         = "tcp"
+    cidr_blocks      = ["${var.rubrik_cluster_cidr}"]
+  }
+
+  ingress {
+    description      = "Cluster to Storm communication"
+    from_port        = 7785
+    to_port          = 7785
+    protocol         = "tcp"
+    cidr_blocks      = ["${var.rubrik_cluster_cidr}"]
+  }
+
+  ingress {
+    description      = "Cluster to Storm communication"
+    from_port        = 8077
+    to_port          = 8077
+    protocol         = "tcp"
+    cidr_blocks      = ["${var.rubrik_cluster_cidr}"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+}
 }
