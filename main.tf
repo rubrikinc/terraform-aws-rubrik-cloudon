@@ -84,9 +84,68 @@ resource "aws_iam_user_policy_attachment" "rubrik-user" {
   policy_arn = "${aws_iam_policy.cloud-on-permissions.arn}"
 }
 
-################################
-#     Configure CloudOn        #
-################################
+# Note: if an existing policy exists with the name "vmimport" and is configured as
+# this policy is, this resource can be removed. If this resoruce is removed the 
+# policy assigment for the "vmimport" role below will need to be altered with the role
+# arn id of the existing "vmimport" role. 
+resource "aws_iam_role" "rubrik-vmimport" {
+  name               = "vmimport"
+  path               = "/"
+  assume_role_policy = <<EOF
+{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": { "Service": "vmie.amazonaws.com" },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": { "sts:Externalid": "vmimport" }
+              }
+            }
+          ]
+        }
+EOF
+}
+
+resource "aws_iam_policy" "rubrik-vmimport" {
+  name   = "${var.iam_vmimport_policy_name}"
+  policy = <<EOF
+{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::${var.bucket_name}",
+                  "arn:aws:s3:::${var.bucket_name}/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "ec2:ModifySnapshotAttribute",
+                "ec2:CopySnapshot",
+                "ec2:RegisterImage",
+                "ec2:Describe*"
+              ],
+              "Resource": "*"
+            }
+          ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "rubrik-vmimport" {
+  role       = aws_iam_role.rubrik-vmimport.name
+  policy_arn = aws_iam_policy.rubrik-vmimport.arn
+}
+
 
 resource "rubrik_aws_s3_cloudon" "cloudon" {
   archive_name      = "${var.archive_name}"

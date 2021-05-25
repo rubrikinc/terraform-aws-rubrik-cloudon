@@ -2,8 +2,7 @@
 
 Terraform module that adds Cloud Compute Settings to an existing archive location. The following steps are completed by the module:
 
-* Create a new IAM Policy with the correct permissions for CloudOn and attach it to the specified user.
-* Configures Cloud Compute Settings on Rubrik cluster.
+- Create a new IAM Role with the correct permissions for CloudOn to use the AWS VMImport service.
 
 ## Documentation
 
@@ -32,6 +31,7 @@ module "rubrik_aws_cloudon" {
 The following are the variables accepted by the module.
 
 | aws_region                        | The AWS region to configure Rubrik Storm instances to run in.                                                    | string |                        |   yes    |
+| iam_vmimport_policy_name          | The name of the IAM Policy configured with the correct permissions for the VM Import service.                    | string |  rubrik-vmimport-role  |   yes    |
 
 ## Prerequisites
 
